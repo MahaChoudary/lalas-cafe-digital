@@ -20,8 +20,8 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt, children }: P
         alt={imageAlt}
         fetchPriority="high"
         className="absolute inset-0 -z-20 h-full w-full object-cover"
-        initial={reduced ? undefined : { scale: 1.1 }}
-        animate={reduced ? undefined : { scale: 1 }}
+        initial={reduced ? { opacity: 1 } : { scale: 1.1 }}
+        animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
       />
       <div className="veil absolute inset-0 -z-10" />
