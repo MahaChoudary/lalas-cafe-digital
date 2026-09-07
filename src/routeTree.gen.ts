@@ -15,6 +15,7 @@ import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as OffersRouteImport } from './routes/offers'
+import { Route as ReservationsRouteImport } from './routes/reservations'
 import { Route as StoryRouteImport } from './routes/story'
 import { Route as VisitRouteImport } from './routes/visit'
 
@@ -48,6 +49,11 @@ const OffersRoute = OffersRouteImport.update({
   path: '/offers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReservationsRoute = ReservationsRouteImport.update({
+  id: '/reservations',
+  path: '/reservations',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StoryRoute = StoryRouteImport.update({
   id: '/story',
   path: '/story',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/menu': typeof MenuRoute
   '/offers': typeof OffersRoute
+  '/reservations': typeof ReservationsRoute
   '/story': typeof StoryRoute
   '/visit': typeof VisitRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/menu': typeof MenuRoute
   '/offers': typeof OffersRoute
+  '/reservations': typeof ReservationsRoute
   '/story': typeof StoryRoute
   '/visit': typeof VisitRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/menu': typeof MenuRoute
   '/offers': typeof OffersRoute
+  '/reservations': typeof ReservationsRoute
   '/story': typeof StoryRoute
   '/visit': typeof VisitRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/menu'
     | '/offers'
+    | '/reservations'
     | '/story'
     | '/visit'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/menu'
     | '/offers'
+    | '/reservations'
     | '/story'
     | '/visit'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/menu'
     | '/offers'
+    | '/reservations'
     | '/story'
     | '/visit'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   MenuRoute: typeof MenuRoute
   OffersRoute: typeof OffersRoute
+  ReservationsRoute: typeof ReservationsRoute
   StoryRoute: typeof StoryRoute
   VisitRoute: typeof VisitRoute
 }
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OffersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reservations': {
+      id: '/reservations'
+      path: '/reservations'
+      fullPath: '/reservations'
+      preLoaderRoute: typeof ReservationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/story': {
       id: '/story'
       path: '/story'
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   MenuRoute: MenuRoute,
   OffersRoute: OffersRoute,
+  ReservationsRoute: ReservationsRoute,
   StoryRoute: StoryRoute,
   VisitRoute: VisitRoute,
 }
